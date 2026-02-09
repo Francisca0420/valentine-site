@@ -140,8 +140,8 @@ button {
 <canvas id="confettiCanvas"></canvas>
 
 <main class="card">
-  <!-- YOUR PHOTO -->
-  <img class="art" src="us.jpg" alt="Us together" />
+  <!-- SURPRISE PHOTO (hidden initially) -->
+  <img class="art" id="surpriseImage" src="us.jpg" alt="Us together" style="display:none;" />
 
   <h1>Babygirl, will you be my Valentine?</h1>
 
@@ -169,6 +169,7 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const result = document.getElementById("result");
 const hint = document.getElementById("hint");
+const surpriseImage = document.getElementById("surpriseImage");
 const confettiCanvas = document.getElementById("confettiCanvas");
 
 // Confetti setup
@@ -273,8 +274,9 @@ noBtn.addEventListener("click", e => e.preventDefault());
 // YES click
 yesBtn.addEventListener("click", () => {
   zone.style.display = "none";
-  hint.style.display = "none";
-  result.style.display = "block";
+  hint.style.display = "none"; // HIDE THE HINT
+  result.style.display = "block"; // show fireworks/result
+  surpriseImage.style.display = "block"; // SHOW IMAGE
   resizeConfettiCanvas();
   fullScreenConfetti();
 });
